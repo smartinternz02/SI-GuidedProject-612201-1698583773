@@ -9,8 +9,8 @@ import os
 from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
-model = joblib.load(open('D:\\College\\AI_Extership\\DecisionTree.joblib', 'rb'))
-scale = joblib.load(open('D:\\College\\AI_Extership\\MinMaxScaler.joblib', 'rb'))
+model = joblib.load(open('D:\\College\\AI_Extership\\Project Development Phase\\DecisionTree.joblib', 'rb'))
+scale = joblib.load(open('D:\\College\\AI_Extership\\Project Development Phase\\MinMaxScaler.joblib', 'rb'))
 
 @app.route('/')
 def home():
@@ -27,5 +27,4 @@ def predict():
     return render_template('prediction.html', data=prediction)
     
 if __name__ == "__main__":
-    port = int(os.environ.get('PORT',5000))
-    app.run(port=port,debug=True,use_reloader = False)
+    app.run(debug=False,host='0.0.0.0')
